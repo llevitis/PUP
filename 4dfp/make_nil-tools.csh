@@ -1,5 +1,13 @@
 #!/bin/csh
 
+setenv NILSRC "/data1/llevitis/code/PUP/4dfp"
+setenv RELEASE "/data1/llevitis/code/PUP/scripts"
+setenv OSTYPE "linux"
+
+set NILSRC="/data1/llevitis/code/PUP/4dfp"
+set RELEASE="/data1/llevitis/code/PUP/scripts"
+set OSTYPE="linux"
+
 echo "NILSRC="$NILSRC
 echo "RELEASE="$RELEASE
 cd $NILSRC
@@ -10,7 +18,7 @@ set FC = "gcc -O -ffixed-line-length-132 -fcray-pointer -c"
 set echo
 
 pushd librms
-make -f librms.mak
+make -f librms.mak || exit
 popd
 
 pushd imgblur_4dfp

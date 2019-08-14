@@ -75,6 +75,8 @@ if (( tgflag == 1 )) # target is PET atlas
 then
 	pet2petatl $refimg ${petid}_sumall $rmf $mmf $mbf $modf || die "$program ERROR: pet2petatl $refimg ${petid}_sumall $rmf $mmf $mbf $modf failed"
 else # target is patient MR (the most common case, i.e. FreeSurfer based processing)
+        echo $refimg 
+        echo ${petid}_sumall
 	if [ -n "$rmf" ] && [ -n "$maskfile" ]
 	then
 		reg2img $refimg ${petid}_sumall $rmf $maskfile $mmf $rbf $mbf $modf || die "$program ERROR: reg2img $refimg ${petid}_sumall $rmf $maskfile $mmf $rbf $mbf $modf failed"

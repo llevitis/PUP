@@ -143,6 +143,7 @@ fi
 # Register each time bin to the sumall and generate combined FOV coverage
 for (( i=1; i<=ntb; i++ ))
 do
+        echo "hi liza"
 	reg2img ${petid}_sumall ${petid}_tb${i} -rm -mm -rb 6 -mb 6 -f
 	t4fn=${petid}_tb${i}_to_${petid}_sumall_t4
 	if [ -e ${petid}_sumall_${petid}_tb${i}_reg2img_resolve.log ]

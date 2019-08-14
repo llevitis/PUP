@@ -150,6 +150,7 @@ endif
 set oristr	= (T C S)
 set date0	= `date`
 set usr		= `whoami`
+atlas=mni_icbm152_t1_tal_nlin_asym_09c
 echo "target="$target "atlas="$atlas
 
 set refmsk =	$refdir/$atlas"_mask_g5_111z"

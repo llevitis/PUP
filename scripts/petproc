@@ -64,32 +64,32 @@ petreg $paramsfn || die "$program ERROR: PET to target registration failed"
 
 ###############################################################################
 # Determine model frames
-petmdlframes $paramsfn || die "$program ERROR: Model Frames failed"
+#petmdlframes $paramsfn || die "$program ERROR: Model Frames failed"
 
 ###############################################################################
 # Full Kinetic Processing
 
 # ROI TAC extraction
-petroitac $paramsfn || die "$program ERROR: ROI TAC extraction failed"
+#petroitac $paramsfn || die "$program ERROR: ROI TAC extraction failed"
 
 # Logan Reference Region Analysis
-if [ "$model" = "logan" ]
-then
-	petrefroi $paramsfn || die "$program ERROR: REF TAC extraction failed"
-	petroiloganREF $paramsfn || die "$program ERROR: Logan Reference Region Analysis failed"
-	petloganrep $paramsfn || die "$program ERROR: petloganrep failed"
-fi
+#if [ "$model" = "logan" ]
+#then
+#	petrefroi $paramsfn || die "$program ERROR: REF TAC extraction failed"
+#	petroiloganREF $paramsfn || die "$program ERROR: Logan Reference Region Analysis failed"
+#	petloganrep $paramsfn || die "$program ERROR: petloganrep failed"
+#fi
 # Additional analysis will be implemented in the future
 
 ###############################################################################
 # Static Processing
 
-if [ "$suvr" = "1" ]
-then
-	petmdlsum $paramsfn || die "$program ERROR: petmdlsum failed"
-	petroiint $paramsfn || die "$program ERROR: Static ROI intensity extraction failed"
-	petrefroi $paramsfn || die "$program ERROR: petrefroi failed"
-	petsuvr $paramsfn || die "$program ERROR: SUVR Analysis failed"
-	petsuvrrep $paramsfn || die "$program ERROR: SUVR Analysis failed"
-fi
+#if [ "$suvr" = "1" ]
+#then
+#	petmdlsum $paramsfn || die "$program ERROR: petmdlsum failed"
+#	petroiint $paramsfn || die "$program ERROR: Static ROI intensity extraction failed"
+#	petrefroi $paramsfn || die "$program ERROR: petrefroi failed"
+#	petsuvr $paramsfn || die "$program ERROR: SUVR Analysis failed"
+#	petsuvrrep $paramsfn || die "$program ERROR: SUVR Analysis failed"
+#fi
 

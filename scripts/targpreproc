@@ -41,10 +41,10 @@ source $paramsfn || die "$program ERROR: Cannot source params file $paramsfn"
 
 # FREESURFER based processing. The preprocessing step converts freesurfer
 # files into 4dfp format, and prepares for ROI analysis.
-if (( FS == 1 ))
-then
-	fspreproc $paramsfn || die "$program ERROR: fspreproc $paramsfn failed"
-fi
+#if (( FS == 1 ))
+#then
+#	fspreproc $paramsfn || die "$program ERROR: fspreproc $paramsfn failed"
+#fi
 
 # PET ATLAS based processing. The preprocessing step populates PET atlas
 # template image and ROI definetion files in the PET atlas space and prepare

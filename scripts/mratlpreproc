@@ -53,8 +53,8 @@ source $paramsfn || die "$program ERROR: Cannot source params file $paramsfn"
 ###############################################################################
 # Copy ROI files
 
-cp $roidir/${roiimg}.4dfp.* .
-cp $roidir/${roilist} .
+#cp $roidir/${roiimg}.4dfp.* .
+#cp $roidir/${roilist} .
 
 ###############################################################################
 # Check if MR has been pre-registered
@@ -81,8 +81,8 @@ else
     ###############################################################################
     # Populate files
 
-    dcm_to_4dfp -b ${mrid}S $mrdir/$mrfn || die "$program ERROR: DICOM to 4dfp conversion failed"
-
+    #dcm_to_4dfp -b ${mrid}S $mrdir/$mrfn || die "$program ERROR: DICOM to 4dfp conversion failed"
+    niftigz_4dfp -4 $mrdir/$mrfn ${mrid}S || die "$program ERROR: Gzipped Nifti to 4dfp conversion failed"
     # The MR is typically MPRAGE data acquired sagitally, will convert to
     # transverse first.
     ori=`gawk '/orientation/{print $NF}' ${mrid}S.4dfp.ifh`
@@ -108,7 +108,7 @@ else
 
     ###############################################################################
     # atlas registration
-    mpr2atl_4dfp $mrid -T$atlpath/$atltarg || die "$program ERROR: atlas registration failed"
+    mpr2atl_4dfp $mrid -S -T$atlpath/$atltarg || die "$program ERROR: atlas registration failed"
 
     # generate brainmask
     msktgen_4dfp $mrid -T$atlpath/$atltarg || die "$program ERROR: brainmask generation failed"
